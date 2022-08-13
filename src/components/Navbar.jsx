@@ -10,9 +10,9 @@ import {cart, chat, Notification, UserProfile} from '.'
 import { useStateContext } from '../contexts/ContextProvider';
 
 const NavButton = ({title, customFunc, icon, color, dotColor}) => (
-  <TooltipComponent content="title" position='BottomCenter'>
+  <TooltipComponent content={title} position='BottomCenter'>
     <button type='button' onClick={customFunc} style={{color}} className='relative text-xl rounded-full p-3 hover:bg-light-gray' >
-      <span style={{background: dotColor}} className='absolute inline-flex rounded-full h-2 w-2 top-2'>
+      <span style={{background: dotColor}} className='absolute inline-flex rounded-full h-2 w-2 right-2 top-1'>
         {icon}
       </span>
     </button>
@@ -24,6 +24,16 @@ const Navbar = () => {
   return (
     <div className='flex justify-between p-2 md:mx-6 relative'>
       <NavButton title='Menu' customFunc={() => setActiveMenu((prev) => !prev)} icon={<AiOutlineMenu />} />
+      <div className="flex">
+        <NavButton title='Cart' customFunc={() => {}} color='blue' icon={<FiShoppingCart />} />
+        <NavButton title='Chat' dotColor='#03c9d7' customFunc={() => {}} color='blue' icon={<BsChatLeft />} />
+        <NavButton title='Notifications' dotColor='#03c9d7' customFunc={() => {}} color='blue' icon={<RiNotificationLine />} />
+        <TooltipComponent content='profile' position='BottomCenter' >
+          <div className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg' onClick={() => {}}>
+            <img className='rounded-full w-8 h-8' src={avatar} alt='avatar' />
+          </div>
+        </TooltipComponent>
+      </div>
     </div>
   )
 }
