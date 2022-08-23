@@ -1,18 +1,18 @@
 import React from "react";
-import { BsCurrencyDollar } from "react-icons/bs";
+// import { BsCurrencyDollar } from "react-icons/bs";
 import { GoPrimitiveDot } from "react-icons/go";
-import { IoIosMore } from "react-icons/io";
+// import { IoIosMore } from "react-icons/io";
 
-import { Stacked, Pie, Button, SparkLine } from "../components";
+import { Stacked, Button, SparkLine } from "../components";
 import {
   earningData,
   SparklineAreaData,
-  ecomPieChartData,
+  // ecomPieChartData,
 } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const Ecommerce = () => {
-  const { currentColor, currentMode } = useStateContext();
+  const { currentMode } = useStateContext();
 
   return (
     <div className="mt-12">
