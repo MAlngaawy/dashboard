@@ -28,7 +28,8 @@ import { useStateContext } from "./contexts/ContextProvider";
 import "./App.css";
 
 const App = () => {
-  const { activeMenu, setThemeSettings, themeSettings } = useStateContext();
+  const { activeMenu, setThemeSettings, themeSettings, currentColor } =
+    useStateContext();
 
   return (
     <div>
@@ -39,7 +40,8 @@ const App = () => {
               <button
                 type="button"
                 onClick={() => setThemeSettings(true)}
-                className="p-4 rounded-full text-white bg-blue-600 text-2xl"
+                style={{ backgroundColor: currentColor }}
+                className="p-4 rounded-full text-white  text-2xl"
               >
                 <FiSettings />
               </button>
