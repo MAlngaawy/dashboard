@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
-import { Navbar, Sidebar } from "./components";
+import { Navbar, Sidebar, ThemeSettings } from "./components";
 import {
   Ecommerce,
   Orders,
@@ -28,7 +28,7 @@ import { useStateContext } from "./contexts/ContextProvider";
 import "./App.css";
 
 const App = () => {
-  const { activeMenu } = useStateContext();
+  const { activeMenu, setThemeSettings, themeSettings } = useStateContext();
 
   return (
     <div>
@@ -38,6 +38,7 @@ const App = () => {
             <TooltipComponent content="settings" position="top">
               <button
                 type="button"
+                onClick={() => setThemeSettings(true)}
                 className="p-4 rounded-full text-white bg-blue-600 text-2xl"
               >
                 <FiSettings />
@@ -63,6 +64,7 @@ const App = () => {
             <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
               <Navbar />
             </div>
+            <div>{themeSettings && <ThemeSettings />}</div>
 
             <Routes>
               {/* dashboard  */}
